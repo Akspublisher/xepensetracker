@@ -1,7 +1,12 @@
 import React, { use, useEffect, useState } from 'react';  
 import styles from "./Home.module.css"
 import Card from '../components/Card/Card';
+import Modal from '../components/Modals/Modal';
+import ExpenseForm from '../components/Forms_blank/AddExpensesForm/ExpensesForm';
+import AddBalanceForm from '../components/Forms_blank/BalanceForm/AddBalanceForm';
 import { BarChart, Pie } from 'recharts';
+
+
 export default function Home() {
 
   const [expenses, setExpenses] = useState(0);
@@ -136,7 +141,7 @@ export default function Home() {
         />   */}
         </div>
 
-        {/* <Modal isOpen={isOpenAddExpense} setIsOpen={setIsOpenAddExpense}>
+        <Modal isOpen={isOpenAddExpense} setIsOpen={setIsOpenAddExpense}>
           <ExpenseForm
           setIsOpen={setIsOpenAddExpense}
           expendesList={expendesList}
@@ -147,7 +152,7 @@ export default function Home() {
         </Modal>
 
         <Modal isOpen={isOpenAddBalance} setIsOpen={setIsOpenAddBalance}>
-          <BalanceForm
+          <AddBalanceForm 
           setIsOpen={setIsOpenAddBalance}
           balance={balance}
           setBalance={setBalance}
@@ -155,11 +160,11 @@ export default function Home() {
         </Modal>
 
         <Modal isOpen={isOpenAddBalance} setIsOpen={setIsOpenAddBalance}>
-          <BalanceForm
+          <AddBalanceForm
           setIsOpen={setIsOpenAddBalance}
           setBalance={setBalance}
           />
-        </Modal> */}
+        </Modal>
           
     </div>
   );
