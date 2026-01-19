@@ -4,6 +4,7 @@ import Card from '../components/Card/Card';
 import Modal from '../components/Modals/Modal';
 import ExpenseForm from '../components/Forms_blank/AddExpensesForm/ExpensesForm';
 import AddBalanceForm from '../components/Forms_blank/BalanceForm/AddBalanceForm';
+import PieChartComponent from '../components/PieCharts/PieCharts';
 import { BarChart, Pie } from 'recharts';
 
 
@@ -116,13 +117,13 @@ export default function Home() {
           handleClick={() => setIsOpenAddExpense(true)}
           />
 
-          {/* <PieChart
+          <PieChartComponent
           data={[
             { name: 'Food', value: categorySpendsList.food }, 
             { name: 'Travel', value: categorySpendsList.travel },
             { name: 'Entertainment', value: categorySpendsList.entertainment }
           ]}
-          /> */}
+          />
           </div>
         <div className={styles.transactionsWrapper}>
           {/* <TransactionsList
