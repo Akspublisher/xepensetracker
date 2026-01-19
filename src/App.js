@@ -1,11 +1,14 @@
-import logo from './logo.svg';
+import { SnackbarProvider } from 'notistack';
 import './App.css';
+import Home from './pages/Home';  
 
 function App() {
   return (
-    <div>
-      <h1>Expense Tracker </h1>
-    </div>
+    <SnackbarProvider>
+      <div>
+        <Home />
+      </div>
+    </SnackbarProvider> 
   );
 }
 
