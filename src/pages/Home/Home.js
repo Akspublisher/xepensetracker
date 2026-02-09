@@ -112,7 +112,14 @@ export default function Home() {
           buttontype="success"  
           handleClick={() => setIsOpenAddBalance(true)}
           />
-          
+          <Card 
+          title="Expenses"
+          value={expenses}
+          buttonText="+ Add Expense"
+          buttontype="failure"
+          success={false}       
+          handleClick={() => setIsOpenAddExpense(true)}
+          />
       </div>      
     </div>
   );
