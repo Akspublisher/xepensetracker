@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';  
 import styles from "./Home.module.css"
 import Card from '../../components/Card/Card';
+import PieChart from '../../components/PieChart/PieChart';
 
 export default function Home() {
 
@@ -119,6 +120,14 @@ export default function Home() {
           buttontype="failure"
           success={false}       
           handleClick={() => setIsOpenAddExpense(true)}
+          />
+
+          <PieChart
+          data={[
+            { name: 'Food', value: categorySpendsList.food }, 
+            { name: 'Travel', value: categorySpendsList.travel },
+            { name: 'Entertainment', value: categorySpendsList.entertainment }
+          ]}
           />
       </div>      
     </div>
