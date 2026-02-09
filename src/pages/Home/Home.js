@@ -104,7 +104,16 @@ export default function Home() {
    
     <h1>Expense Tracker</h1>
     
-       
+    <div className={styles.cardsWrapper}>
+          <Card
+          title="Wallet Balance"
+          value={balance}
+          buttonText="+ Add Income" 
+          buttontype="success"  
+          handleClick={() => setIsOpenAddBalance(true)}
+          />
+          
+      </div>      
     </div>
   );
 }
