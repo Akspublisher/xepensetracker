@@ -29,6 +29,7 @@ export default function AddBalanceForm({ setIsOpen, setBalance }) {
                     value={income}
                     onChange={(e) => setIncome(e.target.value)}
                     required
+                    data-testid="income-input"
                 />
                 
                 <Button 
