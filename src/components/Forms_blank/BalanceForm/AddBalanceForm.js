@@ -30,9 +30,13 @@ export default function AddBalanceForm({ setIsOpen, setBalance }) {
                     onChange={(e) => setIncome(e.target.value)}
                     required
                 />
-                <Button type="submit" style="primary" shadow>Add Balance</Button>
+                
+                <Button 
+                // eslint-disable-next-line react/style-prop-object
+                type="submit" style="primary" shadow>Add Balance</Button>
 
                 <Button
+                    // eslint-disable-next-line react/style-prop-object
                     style='secondary'
                     shadow
                     handleClick={() => setIsOpen(false)}

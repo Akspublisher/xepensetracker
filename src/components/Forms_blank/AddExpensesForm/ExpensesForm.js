@@ -50,7 +50,7 @@ export default function ExpenseForm({ setIsOpen, expensesList, setExpensesList, 
         e.preventDefault()
 
         const updated = expensesList.map(item => {
-            if (item.id == editId) {
+            if (item.id === editId) {
 
                 const priceDifference = item.price - Number(formData.price)
 
@@ -78,7 +78,7 @@ export default function ExpenseForm({ setIsOpen, expensesList, setExpensesList, 
     useEffect(() => {
 
         if (editId) {
-            const expenseData = expensesList.find(item => item.id == editId)
+            const expenseData = expensesList.find(item => item.id === editId)
 
             setFormData({
                 title: expenseData.title,
@@ -89,7 +89,7 @@ export default function ExpenseForm({ setIsOpen, expensesList, setExpensesList, 
 
         }
 
-    }, [editId])
+    }, [editId, expensesList])
 
     return (
 
@@ -125,9 +125,13 @@ export default function ExpenseForm({ setIsOpen, expensesList, setExpensesList, 
                     required
                 />
 
-                <Button type="submit" style="primary" shadow>{editId ? 'Edit Expense' : 'Add Expense'}</Button>
+                <Button
+                 // eslint-disable-next-line react/style-prop-object
+                 type="submit" style="primary" shadow>{editId ? 'Edit Expense' : 'Add Expense'}</Button>
 
-                <Button style='secondary' shadow
+                <Button
+                 // eslint-disable-next-line react/style-prop-object
+                 style='secondary' shadow
                     handleClick={() => setIsOpen(false)}
                 >
                     Cancel

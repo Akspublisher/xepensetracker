@@ -27,7 +27,7 @@ export default function Home() {
     travel: 0,
     entertainment: 0
   }); 
-  const [categoryCounts, setCategoryCounts] = useState({
+  const [, setCategoryCounts] = useState({
     food: 0,
     travel: 0,
     entertainment: 0
@@ -76,13 +76,13 @@ export default function Home() {
       travelCount = 0;
 
     expensesList.forEach((item) => {
-      if (item.category == "food") {
+      if (item.category === "food") {
         foodSpends += Number(item.price);
         foodCount++;
-      } else if (item.category == "entertainment") {
+      } else if (item.category === "entertainment") {
         entertainmentSpends += Number(item.price);
         entertainmentCount++;
-      } else if (item.category == "travel") {
+      } else if (item.category === "travel") {
         travelSpends += Number(item.price);
         travelCount++;
       }
@@ -99,14 +99,14 @@ export default function Home() {
       travel: travelCount,
       entertainment: entertainmentCount,
     });
-  }, [expensesList]);
+  }, [expensesList, isMounted]);
 
   // saving balance in localStorage
   useEffect(() => {
     if (isMounted) {
       localStorage.setItem("balance", balance);
     }
-  }, [balance]);
+  }, [balance, isMounted]);
 
   return (
     <div className={styles.container}>
