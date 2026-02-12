@@ -1,5 +1,5 @@
 import styles from './ExpensesForm.module.css'
-import Button from '../../Button/Button.js'
+import Button from '../../Buttons/Button.js'
 import { useEffect, useState } from 'react'
 import { useSnackbar } from 'notistack';
 

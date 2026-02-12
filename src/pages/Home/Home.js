@@ -6,6 +6,7 @@ import TransactionList from '../../components/TransactionCardList/TransactionLis
 import Modal from '../../components/Modals/Modal';
 import ExpenseForm from '../../components/Forms_blank/AddExpensesForm/ExpensesForm';
 import AddBalanceForm from '../../components/Forms_blank/BalanceForm/AddBalanceForm';
+import BarChart from '../../components/BarChart/BarChart';
 
 
 
@@ -19,6 +20,7 @@ export default function Home() {
   // modals
   const [isOpenAddExpense, setIsOpenAddExpense] = useState(false);
   const [isOpenAddBalance, setIsOpenAddBalance] = useState(false);
+ // console.log(isOpenAddBalance, isOpenAddExpense )
   
   const [categorySpendsList, setCategorySpendsList] = useState({
     food: 0,
@@ -117,7 +119,7 @@ export default function Home() {
           value={balance}
           buttonText="+ Add Income" 
           buttontype="success"  
-          handleClick={() => setIsOpenAddBalance(true)}
+          handleClick={() =>  setIsOpenAddBalance(true)}
           />
           <Card 
           title="Expenses"
@@ -135,6 +137,7 @@ export default function Home() {
             { name: 'Entertainment', value: categorySpendsList.entertainment }
           ]}
           />
+
       </div>
       <div className={styles.transactionsWrapper}>
           <TransactionList
@@ -144,8 +147,16 @@ export default function Home() {
            balance={balance}
            setBalance={setBalance}
          /> 
-         </div>
 
+          <BarChart
+          data={[
+            { name: 'Food', value: categorySpendsList.food },
+            { name: 'Travel', value: categorySpendsList.travel },
+            { name: 'Entertainment', value: categorySpendsList.entertainment }
+          ]}
+        />  
+
+         </div>
          
           {/* <Modal isOpen={isOpenAddExpense} setIsOpen={setIsOpenAddExpense}>
           <ExpenseForm
@@ -171,7 +182,7 @@ export default function Home() {
           setBalance={setBalance}
           />
         </Modal>       */}
-         <Modal isOpen={isOpenAddExpense} setIsOpen={setIsOpenAddExpense}>
+         {/* <Modal isOpen={isOpenAddExpense} setIsOpen={setIsOpenAddExpense}>
         <ExpenseForm
           setIsOpen={setIsOpenAddExpense}
           expensesList={expensesList}
@@ -183,7 +194,32 @@ export default function Home() {
 
       <Modal isOpen={isOpenAddBalance} setIsOpen={setIsOpenAddBalance}>
         <AddBalanceForm setIsOpen={setIsOpenAddBalance} setBalance={setBalance} />
-      </Modal>
+      </Modal> */}
+      <Modal isOpen={isOpenAddExpense} setIsOpen={setIsOpenAddExpense}>
+          <ExpenseForm
+          setIsOpen={setIsOpenAddExpense}
+          expensesList={expensesList}
+          setExpensesList={setExpensesList}
+          balance={balance}
+          setBalance={setBalance}
+          />
+        </Modal>
+
+        <Modal isOpen={isOpenAddBalance} setIsOpen={setIsOpenAddBalance}>
+          <AddBalanceForm 
+          setIsOpen={setIsOpenAddBalance}
+          balance={balance}
+          setBalance={setBalance}
+          />
+        </Modal>
+
+        <Modal isOpen={isOpenAddBalance} setIsOpen={setIsOpenAddBalance}>
+          <AddBalanceForm
+          setIsOpen={setIsOpenAddBalance}
+          setBalance={setBalance}
+          />
+        </Modal>
+
     </div>
   );
 }
