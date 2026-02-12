@@ -2,6 +2,12 @@ import React, { useEffect, useState } from 'react';
 import styles from "./Home.module.css"
 import Card from '../../components/Card/Card';
 import PieChart from '../../components/PieChart/PieChart';
+import TransactionList from '../../components/TransactionCardList/TransactionList';
+import Modal from '../../components/Modals/Modal';
+import ExpenseForm from '../../components/Forms_blank/AddExpensesForm/ExpensesForm';
+import AddBalanceForm from '../../components/Forms_blank/BalanceForm/AddBalanceForm';
+
+
 
 export default function Home() {
 
@@ -129,7 +135,55 @@ export default function Home() {
             { name: 'Entertainment', value: categorySpendsList.entertainment }
           ]}
           />
-      </div>      
+      </div>
+      <div className={styles.transactionsWrapper}>
+          <TransactionList
+            transactions={expensesList}
+           editTransactions={setExpensesList}
+           title="Recent Transactions"
+           balance={balance}
+           setBalance={setBalance}
+         /> 
+         </div>
+
+         
+          {/* <Modal isOpen={isOpenAddExpense} setIsOpen={setIsOpenAddExpense}>
+          <ExpenseForm
+          setIsOpen={setIsOpenAddExpense}
+          expensesList={expensesList}
+          setExpensesList={setExpensesList}
+          balance={balance}
+          setBalance={setBalance}
+          />
+        </Modal>
+
+        <Modal isOpen={isOpenAddBalance} setIsOpen={setIsOpenAddBalance}>
+          <AddBalanceForm 
+          setIsOpen={setIsOpenAddBalance}
+          balance={balance}
+          setBalance={setBalance}
+          />
+        </Modal>
+
+        <Modal isOpen={isOpenAddBalance} setIsOpen={setIsOpenAddBalance}>
+          <AddBalanceForm
+          setIsOpen={setIsOpenAddBalance}
+          setBalance={setBalance}
+          />
+        </Modal>       */}
+         <Modal isOpen={isOpenAddExpense} setIsOpen={setIsOpenAddExpense}>
+        <ExpenseForm
+          setIsOpen={setIsOpenAddExpense}
+          expensesList={expensesList}
+          setExpensesList={setExpensesList}
+          setBalance={setBalance}
+          balance={balance}
+        />
+      </Modal>
+
+      <Modal isOpen={isOpenAddBalance} setIsOpen={setIsOpenAddBalance}>
+        <AddBalanceForm setIsOpen={setIsOpenAddBalance} setBalance={setBalance} />
+      </Modal>
     </div>
   );
 }

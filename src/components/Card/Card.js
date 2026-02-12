@@ -1,3 +1,4 @@
+import Button from '../Button/Button'
 import styles from './Card.module.css';
 
 export default function Card({ title, value, buttonText, buttonType,handleClick, success=true})   {
@@ -9,7 +10,8 @@ export default function Card({ title, value, buttonText, buttonType,handleClick,
             </span>
 
             </h3>
-            <button onClick={handleClick} style={buttonType}>{buttonText}</button>
+            <Button onClick={handleClick} style={buttonType}>{buttonText}</Button>
+            
 
         </div>  
     );
